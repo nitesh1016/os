@@ -1,2 +1,36 @@
-#include<stdio.h>
+/*Ques. 11. Reena’s operating system uses an algorithm for deadlock avoidance to manage the allocation of resources say three namely A, B, and C to three processes P0, P1, and P2. Consider the following scenario as reference .user must enter the current state of system as given in this example :
+Suppose P0 has 0,0,1 instances , P1 is having 3,2,0 instances and P2 occupies 2,1,1 instances of A,B,C resource respectively.
+Also the maximum number of instances required for P0 is 8,4,3 and for p1 is 6,2,0 and finally for P2 there are 3,3,3 instances of resources A,B,C respectively. There are 3 instances of resource A, 2 instances of resource B and 2 instances of resource C available. Write a program to check whether Reena’s operating system is in a safe state or not in the following independent requests for additional resources in the
+current state:
+
+Request1: P0 requests 0 instances of A and 0 instances of B and 2 instances of C.
+Request2: P1 requests for 2 instances of A, 0 instances of B and 0 instances of C.
+All the request must be given by user as input.*/
+
+
+
+//code for the above given question..
+
 #include<conio.h>
+#include<stdio.h>
+
+int current_s[5][5], maximum_claimed[5][5], available[5];
+int allocation[5] = {0, 0, 0, 0, 0};
+int max_res[5], running[5], safe = 0;
+int counter = 0, i, j, exec, resources, processes, k = 1;
+int main()
+{
+printf("\nEnter number of processes: ");
+scanf("%d", &processes);
+for (i = 0; i < processes; i++)
+{
+running[i] = 1;
+counter++;
+}
+printf("\nEnter number of resources: ");
+scanf("%d", &resources);
+printf("\nEnter Claim Vector:");
+for (i = 0; i < resources; i++)
+{
+scanf("%d", &max_res[i]);
+}
